@@ -274,40 +274,6 @@ export default function Home() {
         return element!.atomicMass * amount;
     }
 
-    const displayCalc = (item: string) => {
-        const molecule = item.split(/(?=[0-9])/);
-        if (molecule.length > 1) {
-            const element = elements.find((e) => e.symbol === molecule[0]);
-            if (element) {
-                return {
-                    item: (
-                        <p>
-                            {molecule[1]} x {element!.symbol} = {molecule[1]} x{" "}
-                            {element!.atomicMass}
-                            g/mol = {calcMass(element!, Number(molecule[1])).toFixed(5)}
-                            g/mol
-                        </p>
-                    ),
-                    mass: calcMass(element!, Number(molecule[1])),
-                };
-            }
-        } else {
-            const element = elements.find((e) => e.symbol === molecule[0]);
-            if (element) {
-                return {
-                    item: (
-                        <p>
-                            {element!.symbol} = {element!.atomicMass.toFixed(5)}
-                            g/mol
-                        </p>
-                    ),
-                    mass: element!.atomicMass,
-                };
-            }
-        }
-        return { item: <></>, mass: 0 };
-    };
-
     const getElements = (input: string) => {
         const output: JSX.Element[] = [];
         const inputFormatted: JSX.Element[] = [];
