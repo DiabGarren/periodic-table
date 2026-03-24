@@ -277,10 +277,7 @@ export default function Home() {
     const getElements = (input: string) => {
         const output: JSX.Element[] = [];
         const inputFormatted: JSX.Element[] = [];
-        let total = 0,
-            coeff = 1;
-
-        if (Number(input[0])) coeff = Number(input[0]);
+        let total = 0;
 
         if (input.includes("(") && input.includes(")")) {
             let mult = 1;
@@ -421,8 +418,7 @@ export default function Home() {
             <div>
                 {output.map((item) => item)}
                 <p>
-                    {inputFormatted} = {coeff > 1 ? `${coeff} x ${total}g/mol = ` : ""}{" "}
-                    {Number(coeff * total).toFixed(5)}
+                    {inputFormatted} = {total.toFixed(5)}
                     g/mol
                 </p>
             </div>
@@ -433,12 +429,12 @@ export default function Home() {
             <h1>Periodic Table of Elements</h1>
             <div>
                 <label htmlFor="comp">Relative Atomic Mass</label>
-                <p className="text-[12px]">Ensure you use caps (H2O)</p>
+                <p className="text-[12px]">Ensure you use caps (CuSO4)</p>
                 <input
                     className="block"
                     type="text"
                     name="comp"
-                    placeholder="H2O"
+                    placeholder="Try Mg(NO3)2!"
                     value={comp}
                     onChange={(event) => setComp(event.currentTarget.value)}
                 />
