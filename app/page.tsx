@@ -262,23 +262,13 @@ export default function Home() {
     const [atomicMass, setAtomicMass] = useState(0.0);
 
     function calcMass(
-        element:
-            | {
-                  name: string;
-                  symbol: string;
-                  atomicNumber: number;
-                  atomicMass: number;
-                  electronegativity: number;
-                  symbol?: undefined;
-              }
-            | {
-                  name: string;
-                  symbol: string;
-                  atomicNumber: number;
-                  atomicMass: number;
-                  electronegativity: number;
-                  symbol?: undefined;
-              },
+        element: {
+            name: string;
+            symbol: string;
+            atomicNumber: number;
+            atomicMass: number;
+            electronegativity: number;
+        },
         amount: number,
     ) {
         return element!.atomicMass * amount;
