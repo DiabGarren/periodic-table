@@ -258,8 +258,7 @@ export default function Home() {
         },
     ];
 
-    const [comp, setComp] = useState("");
-    const [atomicMass, setAtomicMass] = useState(0.0);
+    const [formula, setFormula] = useState("");
 
     function calcMass(
         element: {
@@ -295,10 +294,12 @@ export default function Home() {
                         const element = elements.find((e) => e.symbol === molecule[0]);
                         if (element) {
                             output.push(
-                                <p>
+                                <p className="my-[10px]">
                                     {molecule[1]} x {element!.symbol} = {molecule[1]} x{" "}
                                     {element!.atomicMass.toFixed(5)}
-                                    g/mol = {calcMass(element!, Number(molecule[1])).toFixed(5)}
+                                    g/mol = {calcMass(element!, Number(molecule[1])).toFixed(
+                                        5,
+                                    )}{" "}
                                     g/mol
                                 </p>,
                             );
@@ -314,9 +315,8 @@ export default function Home() {
                         const element = elements.find((e) => e.symbol === molecule[0]);
                         if (element) {
                             output.push(
-                                <p>
-                                    {element!.symbol} = {element!.atomicMass.toFixed(5)}
-                                    g/mol
+                                <p className="my-[10px]">
+                                    {element!.symbol} = {element!.atomicMass.toFixed(5)} g/mol
                                 </p>,
                             );
                             total += element!.atomicMass;
@@ -331,11 +331,12 @@ export default function Home() {
                             const element = elements.find((e) => e.symbol === molecule[0]);
                             if (element) {
                                 output.push(
-                                    <p>
+                                    <p className="my-[10px]">
                                         {molecule[1]} x {element!.symbol} = {molecule[1]} x{" "}
-                                        {element!.atomicMass.toFixed(5)}
-                                        g/mol = {calcMass(element!, Number(molecule[1])).toFixed(5)}
-                                        g/mol {mult > 1 ? "* " + mult : ""}
+                                        {element!.atomicMass.toFixed(5)} g/mol <br />{" "}
+                                        <span className="ml-[20px]"></span> ={" "}
+                                        {calcMass(element!, Number(molecule[1])).toFixed(5)} g/mol{" "}
+                                        {mult > 1 ? "* " + mult : ""}
                                     </p>,
                                 );
                                 subtotal += calcMass(element!, Number(molecule[1])) + mult;
@@ -350,9 +351,9 @@ export default function Home() {
                             const element = elements.find((e) => e.symbol === molecule[0]);
                             if (element) {
                                 output.push(
-                                    <p>
-                                        {element!.symbol} = {element!.atomicMass.toFixed(5)}
-                                        g/mol {mult > 1 ? "* " + mult : ""}
+                                    <p className="my-[10px]">
+                                        {element!.symbol} = {element!.atomicMass.toFixed(5)} g/mol{" "}
+                                        {mult > 1 ? "* " + mult : ""}
                                     </p>,
                                 );
                                 subtotal += element!.atomicMass * mult;
@@ -383,11 +384,11 @@ export default function Home() {
                     const element = elements.find((e) => e.symbol === molecule[0]);
                     if (element) {
                         output.push(
-                            <p>
+                            <p className="my-[10px]">
                                 {molecule[1]} x {element!.symbol} = {molecule[1]} x{" "}
-                                {element!.atomicMass}
-                                g/mol = {calcMass(element!, Number(molecule[1])).toFixed(5)}
-                                g/mol
+                                {element!.atomicMass} g/mol <br />{" "}
+                                <span className="ml-[20px]"></span> ={" "}
+                                {calcMass(element!, Number(molecule[1])).toFixed(5)} g/mol
                             </p>,
                         );
                         total += calcMass(element!, Number(molecule[1]));
@@ -402,9 +403,8 @@ export default function Home() {
                     const element = elements.find((e) => e.symbol === molecule[0]);
                     if (element) {
                         output.push(
-                            <p>
-                                {element!.symbol} = {element!.atomicMass.toFixed(5)}
-                                g/mol
+                            <p className="my-[10px]">
+                                {element!.symbol} = {element!.atomicMass.toFixed(5)} g/mol
                             </p>,
                         );
                         total += element!.atomicMass;
@@ -418,28 +418,30 @@ export default function Home() {
             <div>
                 {output.map((item) => item)}
                 <p>
-                    {inputFormatted} = {total.toFixed(5)}
-                    g/mol
+                    {inputFormatted} = {total.toFixed(5)} g/mol
                 </p>
             </div>
         );
     };
     return (
-        <main>
-            <h1>Periodic Table of Elements</h1>
+        <main className="m-[25px_auto] w-[80%]">
             <div>
-                <label htmlFor="comp">Relative Atomic Mass</label>
-                <p className="text-[12px]">Ensure you use caps (CuSO4)</p>
+                <label
+                    htmlFor="comp"
+                    className="text-[24px]">
+                    Calculate Atomic Mass
+                </label>
+                <p className="text-[12px] mt-[15px]">Ensure you use caps (CuSO4)</p>
                 <input
-                    className="block"
+                    className="block mb-[15px]"
                     type="text"
                     name="comp"
                     placeholder="Try Mg(NO3)2!"
-                    value={comp}
-                    onChange={(event) => setComp(event.currentTarget.value)}
+                    value={formula}
+                    onChange={(event) => setFormula(event.currentTarget.value)}
                 />
             </div>
-            {comp ? <>{getElements(comp)}</> : <></>}
+            {formula ? <>{getElements(formula)}</> : <></>}
         </main>
     );
 }
