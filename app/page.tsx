@@ -18,6 +18,41 @@ export default function Home() {
             electronegativity: 0,
         },
         {
+            name: "Lithium",
+            symobol: "Li",
+            atomicNumber: 3,
+            atomicMass: 6.941,
+            electronegativity: 1.0,
+        },
+        {
+            name: "Berylium",
+            symobol: "Be",
+            atomicNumber: 4,
+            atomicMass: 9.0122,
+            electronegativity: 1.5,
+        },
+        {
+            name: "Boron",
+            symobol: "B",
+            atomicNumber: 5,
+            atomicMass: 10.811,
+            electronegativity: 2.0,
+        },
+        {
+            name: "Carbon",
+            symobol: "C",
+            atomicNumber: 6,
+            atomicMass: 12.011,
+            electronegativity: 2.5,
+        },
+        {
+            name: "Nitrogen",
+            symobol: "N",
+            atomicNumber: 7,
+            atomicMass: 14.0067,
+            electronegativity: 3.0,
+        },
+        {
             name: "Oxygen",
             symobol: "O",
             atomicNumber: 8,
@@ -29,24 +64,28 @@ export default function Home() {
     const [comp, setComp] = useState("");
     const [atomicMass, setAtomicMass] = useState(0.0);
 
-    const getElements = (comp: string) => {
+    const getElements = (input: string) => {
         const output = [""];
-        let total = 0;
-        comp.split(/(?=[A-Z])/).forEach((item, index) => {
+        let total = 0,
+            coeff = 1;
+
+        if (Number(input[0])) coeff = Number(input[0]);
+
+        input.split(/(?=[A-Z])/).forEach((item, index) => {
             const molecule = item.split(/(?=[0-9])/);
 
             if (molecule.length > 1) {
                 const element = elements.find((e) => e.symobol === molecule[0]);
                 if (element) {
                     output.push(
-                        `${element.symobol} x ${Number(molecule[1])} = ${element!.atomicMass}g/mol x ${Number(molecule[1])} = ${Number(molecule[1]) * element!.atomicMass}g/mol`,
+                        `${Number(molecule[1])} x ${element.symobol} = ${Number(molecule[1])} x ${element!.atomicMass}g/mol = ${Number(molecule[1]) * element!.atomicMass}g/mol`,
                     );
                     total += Number(molecule[1]) * element!.atomicMass;
                 }
             } else {
                 const element = elements.find((e) => e.symobol === item);
                 if (element) {
-                    output.push(`${element.symobol} x 1 = ${element!.atomicMass}g/mol`);
+                    output.push(`1 x ${element.symobol} = ${element!.atomicMass}g/mol`);
                     total += element!.atomicMass;
                 }
             }
@@ -62,7 +101,8 @@ export default function Home() {
                     </p>
                 ))}
                 <p>
-                    {comp} = {total}g/mol
+                    {input} = {coeff > 1 ? `${coeff} x ${total}g/mol = ` : ""} {coeff * total}
+                    g/mol
                 </p>
             </div>
         );
