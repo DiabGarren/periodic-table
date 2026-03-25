@@ -278,6 +278,10 @@ export default function Home() {
         const inputFormatted: JSX.Element[] = [];
         let total = 0;
 
+        if (!isNaN(Number(input.substring(0, 1)))) {
+            input = input.substring(1);
+        }
+
         if (input.includes("(") && input.includes(")")) {
             let mult = 1;
             if (!isNaN(Number(input.split(/[()]/)[2]))) {
