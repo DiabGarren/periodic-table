@@ -1,6 +1,5 @@
 "use client";
-import { useState } from "react";
-import { JSX } from "react/jsx-runtime";
+import { JSX, useState } from "react";
 
 export default function Home() {
     const elements = [
@@ -10,6 +9,8 @@ export default function Home() {
             atomicNumber: 1,
             atomicMass: 1.0079,
             electronegativity: 2.1,
+            period: 1,
+            group: 1,
         },
         {
             name: "Helium",
@@ -17,6 +18,8 @@ export default function Home() {
             atomicNumber: 2,
             atomicMass: 4.0026,
             electronegativity: 0,
+            period: 1,
+            group: 18,
         },
         {
             name: "Lithium",
@@ -24,6 +27,8 @@ export default function Home() {
             atomicNumber: 3,
             atomicMass: 6.941,
             electronegativity: 1.0,
+            period: 2,
+            group: 1,
         },
         {
             name: "Berylium",
@@ -31,6 +36,8 @@ export default function Home() {
             atomicNumber: 4,
             atomicMass: 9.0122,
             electronegativity: 1.5,
+            period: 2,
+            group: 2,
         },
         {
             name: "Boron",
@@ -38,6 +45,8 @@ export default function Home() {
             atomicNumber: 5,
             atomicMass: 10.811,
             electronegativity: 2.0,
+            period: 2,
+            group: 13,
         },
         {
             name: "Carbon",
@@ -45,6 +54,8 @@ export default function Home() {
             atomicNumber: 6,
             atomicMass: 12.011,
             electronegativity: 2.5,
+            period: 2,
+            group: 14,
         },
         {
             name: "Nitrogen",
@@ -52,6 +63,8 @@ export default function Home() {
             atomicNumber: 7,
             atomicMass: 14.0067,
             electronegativity: 3.0,
+            period: 2,
+            group: 15,
         },
         {
             name: "Oxygen",
@@ -59,6 +72,8 @@ export default function Home() {
             atomicNumber: 8,
             atomicMass: 15.9994,
             electronegativity: 3.5,
+            period: 2,
+            group: 16,
         },
         {
             name: "Fluorine",
@@ -66,6 +81,8 @@ export default function Home() {
             atomicNumber: 9,
             atomicMass: 18.9984,
             electronegativity: 4.0,
+            period: 2,
+            group: 17,
         },
         {
             name: "Neon",
@@ -73,6 +90,8 @@ export default function Home() {
             atomicNumber: 10,
             atomicMass: 20.1797,
             electronegativity: 0,
+            period: 2,
+            group: 18,
         },
         {
             name: "Sodium",
@@ -80,6 +99,8 @@ export default function Home() {
             atomicNumber: 11,
             atomicMass: 22.9898,
             electronegativity: 0.9,
+            period: 3,
+            group: 1,
         },
         {
             name: "Magnesium",
@@ -87,6 +108,8 @@ export default function Home() {
             atomicNumber: 12,
             atomicMass: 24.305,
             electronegativity: 1.2,
+            period: 3,
+            group: 2,
         },
         {
             name: "Aluminium",
@@ -94,6 +117,8 @@ export default function Home() {
             atomicNumber: 13,
             atomicMass: 26.9815,
             electronegativity: 1.5,
+            period: 3,
+            group: 13,
         },
         {
             name: "Silicon",
@@ -101,6 +126,8 @@ export default function Home() {
             atomicNumber: 14,
             atomicMass: 28.0855,
             electronegativity: 1.8,
+            period: 3,
+            group: 14,
         },
         {
             name: "Phospohorus",
@@ -108,6 +135,8 @@ export default function Home() {
             atomicNumber: 15,
             atomicMass: 30.9738,
             electronegativity: 2.1,
+            period: 3,
+            group: 15,
         },
         {
             name: "Sulphur",
@@ -115,6 +144,8 @@ export default function Home() {
             atomicNumber: 16,
             atomicMass: 32.066,
             electronegativity: 2.5,
+            period: 3,
+            group: 16,
         },
         {
             name: "Chlorine",
@@ -122,6 +153,8 @@ export default function Home() {
             atomicNumber: 17,
             atomicMass: 25.4527,
             electronegativity: 3.0,
+            period: 3,
+            group: 17,
         },
         {
             name: "Argon",
@@ -129,6 +162,8 @@ export default function Home() {
             atomicNumber: 18,
             atomicMass: 39.948,
             electronegativity: 0,
+            period: 3,
+            group: 18,
         },
         {
             name: "Potassium",
@@ -136,6 +171,8 @@ export default function Home() {
             atomicNumber: 19,
             atomicMass: 39.0983,
             electronegativity: 0.8,
+            period: 4,
+            group: 1,
         },
         {
             name: "Calcium",
@@ -143,6 +180,8 @@ export default function Home() {
             atomicNumber: 20,
             atomicMass: 40.078,
             electronegativity: 1.0,
+            period: 4,
+            group: 2,
         },
         {
             name: "Scandium",
@@ -150,6 +189,8 @@ export default function Home() {
             atomicNumber: 21,
             atomicMass: 44.9559,
             electronegativity: 1.3,
+            period: 4,
+            group: 3,
         },
         {
             name: "Titanium",
@@ -157,6 +198,8 @@ export default function Home() {
             atomicNumber: 22,
             atomicMass: 47.867,
             electronegativity: 1.5,
+            period: 4,
+            group: 4,
         },
         {
             name: "Vanadium",
@@ -164,6 +207,8 @@ export default function Home() {
             atomicNumber: 23,
             atomicMass: 50.9415,
             electronegativity: 1.6,
+            period: 4,
+            group: 5,
         },
         {
             name: "Chromium",
@@ -171,6 +216,8 @@ export default function Home() {
             atomicNumber: 24,
             atomicMass: 51.9961,
             electronegativity: 1.6,
+            period: 4,
+            group: 6,
         },
         {
             name: "Manganese",
@@ -178,6 +225,8 @@ export default function Home() {
             atomicNumber: 25,
             atomicMass: 54.938,
             electronegativity: 1.5,
+            period: 4,
+            group: 7,
         },
         {
             name: "Iron",
@@ -185,6 +234,8 @@ export default function Home() {
             atomicNumber: 26,
             atomicMass: 55.847,
             electronegativity: 1.8,
+            period: 4,
+            group: 8,
         },
         {
             name: "Cobalt",
@@ -192,6 +243,8 @@ export default function Home() {
             atomicNumber: 27,
             atomicMass: 58.9332,
             electronegativity: 1.9,
+            period: 4,
+            group: 9,
         },
         {
             name: "Nickel",
@@ -199,6 +252,8 @@ export default function Home() {
             atomicNumber: 28,
             atomicMass: 58.693,
             electronegativity: 1.8,
+            period: 4,
+            group: 10,
         },
         {
             name: "Copper",
@@ -206,6 +261,8 @@ export default function Home() {
             atomicNumber: 29,
             atomicMass: 63.546,
             electronegativity: 1.9,
+            period: 4,
+            group: 11,
         },
         {
             name: "Zinc",
@@ -213,6 +270,8 @@ export default function Home() {
             atomicNumber: 30,
             atomicMass: 65.39,
             electronegativity: 1.6,
+            period: 4,
+            group: 12,
         },
         {
             name: "Gallium",
@@ -220,6 +279,8 @@ export default function Home() {
             atomicNumber: 31,
             atomicMass: 69.723,
             electronegativity: 1.6,
+            period: 4,
+            group: 13,
         },
         {
             name: "Germanium",
@@ -227,6 +288,8 @@ export default function Home() {
             atomicNumber: 32,
             atomicMass: 72.61,
             electronegativity: 1.8,
+            period: 4,
+            group: 14,
         },
         {
             name: "Arsenic",
@@ -234,6 +297,8 @@ export default function Home() {
             atomicNumber: 33,
             atomicMass: 74.9216,
             electronegativity: 2.0,
+            period: 4,
+            group: 15,
         },
         {
             name: "Selenium",
@@ -241,6 +306,8 @@ export default function Home() {
             atomicNumber: 34,
             atomicMass: 78.96,
             electronegativity: 2.4,
+            period: 4,
+            group: 16,
         },
         {
             name: "Bromine",
@@ -248,6 +315,8 @@ export default function Home() {
             atomicNumber: 35,
             atomicMass: 79.904,
             electronegativity: 2.8,
+            period: 4,
+            group: 17,
         },
         {
             name: "Krypton",
@@ -255,197 +324,124 @@ export default function Home() {
             atomicNumber: 36,
             atomicMass: 83.8,
             electronegativity: 0,
+            period: 4,
+            group: 18,
         },
     ];
 
-    const [formula, setFormula] = useState("");
+    const [formula, setFormula] = useState<
+        {
+            element: {
+                name: string;
+                symbol: string;
+                atomicNumber: number;
+                atomicMass: number;
+                electronegativity: number;
+                period: number;
+                group: number;
+            };
+            amount: number;
+            output: JSX.Element;
+        }[]
+    >([]);
 
-    function calcMass(
-        element: {
-            name: string;
-            symbol: string;
-            atomicNumber: number;
-            atomicMass: number;
-            electronegativity: number;
-        },
-        amount: number,
-    ) {
-        return element!.atomicMass * amount;
-    }
-
-    const getElements = (input: string) => {
-        const output: JSX.Element[] = [];
-        const inputFormatted: JSX.Element[] = [];
-        let total = 0;
-
-        if (!isNaN(Number(input.substring(0, 1)))) {
-            input = input.substring(1);
-        }
-
-        if (input.includes("(") && input.includes(")")) {
-            let mult = 1;
-            if (!isNaN(Number(input.split(/[()]/)[2]))) {
-                mult = Number(input.split(/[()]/)[2]);
-            }
-
-            input.split(/[()]/).forEach((item, index) => {
-                let subtotal = 0;
-                const inner = item.split(/(?=[A-Z])/);
-                if (inner.length <= 1) {
-                    // Outside brackets
-                    const molecule = item.split(/(?=[0-9])/);
-                    if (molecule.length > 1) {
-                        const element = elements.find((e) => e.symbol === molecule[0]);
-                        if (element) {
-                            output.push(
-                                <p className="my-[10px]">
-                                    {molecule[1]} x {element!.symbol} = {molecule[1]} x{" "}
-                                    {element!.atomicMass.toFixed(5)}
-                                    g/mol = {calcMass(element!, Number(molecule[1])).toFixed(
-                                        5,
-                                    )}{" "}
-                                    g/mol
-                                </p>,
-                            );
-                            total += calcMass(element!, Number(molecule[1]));
-                            inputFormatted.push(
-                                <span>
-                                    {element!.symbol}
-                                    <sub>{molecule[1]}</sub>
-                                </span>,
-                            );
-                        }
-                    } else {
-                        const element = elements.find((e) => e.symbol === molecule[0]);
-                        if (element) {
-                            output.push(
-                                <p className="my-[10px]">
-                                    {element!.symbol} = {element!.atomicMass.toFixed(5)} g/mol
-                                </p>,
-                            );
-                            total += element!.atomicMass;
-                            inputFormatted.push(<span>{element!.symbol}</span>);
-                        }
-                    }
-                } else {
-                    // Inside brackets
-                    item.split(/(?=[A-Z])/).forEach((item) => {
-                        const molecule = item.split(/(?=[0-9])/);
-                        if (molecule.length > 1) {
-                            const element = elements.find((e) => e.symbol === molecule[0]);
-                            if (element) {
-                                output.push(
-                                    <p className="my-[10px]">
-                                        {molecule[1]} x {element!.symbol} = {molecule[1]} x{" "}
-                                        {element!.atomicMass.toFixed(5)} g/mol <br />{" "}
-                                        <span className="ml-[20px]"></span> ={" "}
-                                        {calcMass(element!, Number(molecule[1])).toFixed(5)} g/mol{" "}
-                                        {mult > 1 ? "* " + mult : ""}
-                                    </p>,
-                                );
-                                subtotal += calcMass(element!, Number(molecule[1])) + mult;
-                                inputFormatted.push(
-                                    <span>
-                                        {element!.symbol}
-                                        <sub>{molecule[1]}</sub>
-                                    </span>,
-                                );
-                            }
-                        } else {
-                            const element = elements.find((e) => e.symbol === molecule[0]);
-                            if (element) {
-                                output.push(
-                                    <p className="my-[10px]">
-                                        {element!.symbol} = {element!.atomicMass.toFixed(5)} g/mol{" "}
-                                        {mult > 1 ? "* " + mult : ""}
-                                    </p>,
-                                );
-                                subtotal += element!.atomicMass * mult;
-                                inputFormatted.push(<span>{element!.symbol}</span>);
-                            }
-                        }
-                    });
-                }
-                total += subtotal;
-
-                if (mult > 1) {
-                    if (index == 0) {
-                        inputFormatted.push(<span>{"("}</span>);
-                    } else if (index == 1) {
-                        inputFormatted.push(
-                            <span>
-                                {")"}
-                                <sub>{mult}</sub>
-                            </span>,
-                        );
-                    }
-                }
-            });
-        } else {
-            input.split(/(?=[A-Z])/).forEach((item) => {
-                const molecule = item.split(/(?=[0-9])/);
-                if (molecule.length > 1) {
-                    const element = elements.find((e) => e.symbol === molecule[0]);
-                    if (element) {
-                        output.push(
-                            <p className="my-[10px]">
-                                {molecule[1]} x {element!.symbol} = {molecule[1]} x{" "}
-                                {element!.atomicMass} g/mol <br />{" "}
-                                <span className="ml-[20px]"></span> ={" "}
-                                {calcMass(element!, Number(molecule[1])).toFixed(5)} g/mol
-                            </p>,
-                        );
-                        total += calcMass(element!, Number(molecule[1]));
-                        inputFormatted.push(
-                            <span>
-                                {element!.symbol}
-                                <sub>{molecule[1]}</sub>
-                            </span>,
-                        );
-                    }
-                } else {
-                    const element = elements.find((e) => e.symbol === molecule[0]);
-                    if (element) {
-                        output.push(
-                            <p className="my-[10px]">
-                                {element!.symbol} = {element!.atomicMass.toFixed(5)} g/mol
-                            </p>,
-                        );
-                        total += element!.atomicMass;
-                        inputFormatted.push(<span>{element!.symbol}</span>);
-                    }
-                }
-            });
-        }
-
+    const drawElement = (element: {
+        name: string;
+        symbol: string;
+        atomicNumber: number;
+        atomicMass: number;
+        electronegativity: number;
+        period: number;
+        group: number;
+    }) => {
         return (
-            <div>
-                {output.map((item) => item)}
-                <p>
-                    {inputFormatted} = {total.toFixed(5)} g/mol
-                </p>
+            <div
+                key={"el-" + element.symbol}
+                className="w-[70px] aspect-[1/1] grid border"
+                style={{ gridColumn: element.group }}
+                onClick={() => {
+                    const newF = [...formula];
+                    const exisits = newF.find((e) => e.element.symbol === element.symbol);
+                    if (exisits) {
+                        newF[newF.indexOf(exisits)] = {
+                            element: element,
+                            amount: newF[newF.indexOf(exisits)].amount + 1,
+                            output: (
+                                <span>
+                                    {element.symbol}
+                                    <sub key={"form-" + formula.length}>
+                                        {newF[newF.indexOf(exisits)].amount + 1}
+                                    </sub>
+                                </span>
+                            ),
+                        };
+                    } else {
+                        newF.push({
+                            element: element,
+                            amount: 1,
+                            output: <span key={"form-" + formula.length}>{element.symbol}</span>,
+                        });
+                    }
+                    setFormula(newF);
+                }}>
+                <div className="text-[12px]">{element.atomicNumber}</div>
+                <div className="w-[100%] text-center">{element.symbol}</div>
+                <div className="w-[100%] text-center text-[14px]">{element.atomicMass}</div>
             </div>
         );
     };
+
+    const calcMass = (
+        formula: {
+            element: {
+                name: string;
+                symbol: string;
+                atomicNumber: number;
+                atomicMass: number;
+                electronegativity: number;
+                period: number;
+                group: number;
+            };
+            amount: number;
+            output: JSX.Element;
+        }[],
+    ) => {
+        let mass = 0;
+
+        formula.forEach(
+            (element: {
+                element: {
+                    name: string;
+                    symbol: string;
+                    atomicNumber: number;
+                    atomicMass: number;
+                    electronegativity: number;
+                    period: number;
+                    group: number;
+                };
+                amount: number;
+                output: JSX.Element;
+            }) => {
+                mass += element.element.atomicMass * element.amount;
+            },
+        );
+        return mass;
+    };
+
+    console.log(formula);
+
     return (
         <main className="m-[25px_auto] w-[80%]">
-            <div>
-                <label
-                    htmlFor="comp"
-                    className="text-[24px]">
-                    Calculate Atomic Mass
-                </label>
-                <p className="text-[12px] mt-[15px]">Ensure you use caps (CuSO4)</p>
-                <input
-                    className="block mb-[15px]"
-                    type="text"
-                    name="comp"
-                    placeholder="Try Mg(NO3)2!"
-                    value={formula}
-                    onChange={(event) => setFormula(event.currentTarget.value)}
-                />
+            <div className="grid grid-cols-[70] grid-cols-18 grid-rows-[70] grid-rows-4 overflow-x min-w-[750px]">
+                <div className="col-[4/12] row-[1/2] grid grid-rows2 border">
+                    <div>{formula.length > 0 ? formula!.map((item) => item.output) : <></>}</div>
+                    <div>{formula.length > 0 ? <p>{calcMass(formula)} g/mol</p> : <></>}</div>
+                </div>
+                <div className="col-[4/12] row-[2/3] border">
+                    <button onClick={() => setFormula([])}>Clear</button>
+                </div>
+                {elements.map((element) => drawElement(element))}
             </div>
-            {formula ? <>{getElements(formula)}</> : <></>}
         </main>
     );
 }
