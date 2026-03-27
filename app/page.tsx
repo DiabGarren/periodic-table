@@ -1321,7 +1321,7 @@ export default function Home() {
     return (
         <main className="m-[25px_auto] w-[80%]">
             <div className="text-[rgb(125_125_125)] p-[10px]">Try clicking on an element</div>
-            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x min-w-[750px]">
+            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x w-[750px] mx-auto">
                 <div className="col-[4/12] row-[1/4]">
                     {formula.length > 0 ? (
                         <>
