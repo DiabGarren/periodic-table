@@ -5,3 +5,49 @@ input {
   border-radius: 15px;
   padding-inline: 8px;
 }
+
+.element-block:hover {
+  opacity: 50%;
+}
+
+.element-green {
+  background-color: rgb(176, 199, 136);
+}
+
+.element-red {
+  color: white;
+  background-color: rgb(167, 50, 54);
+  border-color: black;
+}
+
+.element-orange {
+  background-color: rgb(218, 169, 76);
+}
+
+.element-light-blue {
+  background-color: rgb(168, 188, 222);
+}
+
+.element-violet {
+  background-color: rgb(171, 150, 191);
+}
+
+.element-yellow {
+  background-color: rgb(236, 208, 85);
+}
+
+.element-pink {
+  background-color: rgb(220, 178, 200);
+}
+
+.element-blue {
+  background-color: rgb(102, 150, 204);
+}
+
+.element-teal {
+  background-color: rgb(157, 197, 173);
+}
+
+.element-grey {
+  background-color: rgb(197, 197, 197);
+}

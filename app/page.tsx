@@ -11,6 +11,7 @@ export default function Home() {
             electronegativity: 2.1,
             period: 1,
             group: 1,
+            colour: "green",
         },
         {
             name: "Helium",
@@ -20,6 +21,7 @@ export default function Home() {
             electronegativity: 0,
             period: 1,
             group: 18,
+            colour: "pink",
         },
         {
             name: "Lithium",
@@ -29,6 +31,7 @@ export default function Home() {
             electronegativity: 1.0,
             period: 2,
             group: 1,
+            colour: "red",
         },
         {
             name: "Berylium",
@@ -38,6 +41,7 @@ export default function Home() {
             electronegativity: 1.5,
             period: 2,
             group: 2,
+            colour: "orange",
         },
         {
             name: "Boron",
@@ -47,6 +51,7 @@ export default function Home() {
             electronegativity: 2.0,
             period: 2,
             group: 13,
+            colour: "yellow",
         },
         {
             name: "Carbon",
@@ -56,6 +61,7 @@ export default function Home() {
             electronegativity: 2.5,
             period: 2,
             group: 14,
+            colour: "green",
         },
         {
             name: "Nitrogen",
@@ -65,6 +71,7 @@ export default function Home() {
             electronegativity: 3.0,
             period: 2,
             group: 15,
+            colour: "green",
         },
         {
             name: "Oxygen",
@@ -74,6 +81,7 @@ export default function Home() {
             electronegativity: 3.5,
             period: 2,
             group: 16,
+            colour: "green",
         },
         {
             name: "Fluorine",
@@ -83,6 +91,7 @@ export default function Home() {
             electronegativity: 4.0,
             period: 2,
             group: 17,
+            colour: "green",
         },
         {
             name: "Neon",
@@ -92,6 +101,7 @@ export default function Home() {
             electronegativity: 0,
             period: 2,
             group: 18,
+            colour: "pink",
         },
         {
             name: "Sodium",
@@ -101,6 +111,7 @@ export default function Home() {
             electronegativity: 0.9,
             period: 3,
             group: 1,
+            colour: "red",
         },
         {
             name: "Magnesium",
@@ -110,6 +121,7 @@ export default function Home() {
             electronegativity: 1.2,
             period: 3,
             group: 2,
+            colour: "orange",
         },
         {
             name: "Aluminium",
@@ -119,6 +131,7 @@ export default function Home() {
             electronegativity: 1.5,
             period: 3,
             group: 13,
+            colour: "violet",
         },
         {
             name: "Silicon",
@@ -128,6 +141,7 @@ export default function Home() {
             electronegativity: 1.8,
             period: 3,
             group: 14,
+            colour: "yellow",
         },
         {
             name: "Phospohorus",
@@ -137,6 +151,7 @@ export default function Home() {
             electronegativity: 2.1,
             period: 3,
             group: 15,
+            colour: "green",
         },
         {
             name: "Sulphur",
@@ -146,6 +161,7 @@ export default function Home() {
             electronegativity: 2.5,
             period: 3,
             group: 16,
+            colour: "green",
         },
         {
             name: "Chlorine",
@@ -155,6 +171,7 @@ export default function Home() {
             electronegativity: 3.0,
             period: 3,
             group: 17,
+            colour: "green",
         },
         {
             name: "Argon",
@@ -164,6 +181,7 @@ export default function Home() {
             electronegativity: 0,
             period: 3,
             group: 18,
+            colour: "pink",
         },
         {
             name: "Potassium",
@@ -173,6 +191,7 @@ export default function Home() {
             electronegativity: 0.8,
             period: 4,
             group: 1,
+            colour: "red",
         },
         {
             name: "Calcium",
@@ -182,6 +201,7 @@ export default function Home() {
             electronegativity: 1.0,
             period: 4,
             group: 2,
+            colour: "orange",
         },
         {
             name: "Scandium",
@@ -191,6 +211,7 @@ export default function Home() {
             electronegativity: 1.3,
             period: 4,
             group: 3,
+            colour: "light-blue",
         },
         {
             name: "Titanium",
@@ -200,6 +221,7 @@ export default function Home() {
             electronegativity: 1.5,
             period: 4,
             group: 4,
+            colour: "light-blue",
         },
         {
             name: "Vanadium",
@@ -209,6 +231,7 @@ export default function Home() {
             electronegativity: 1.6,
             period: 4,
             group: 5,
+            colour: "light-blue",
         },
         {
             name: "Chromium",
@@ -218,6 +241,7 @@ export default function Home() {
             electronegativity: 1.6,
             period: 4,
             group: 6,
+            colour: "light-blue",
         },
         {
             name: "Manganese",
@@ -227,6 +251,7 @@ export default function Home() {
             electronegativity: 1.5,
             period: 4,
             group: 7,
+            colour: "light-blue",
         },
         {
             name: "Iron",
@@ -236,6 +261,7 @@ export default function Home() {
             electronegativity: 1.8,
             period: 4,
             group: 8,
+            colour: "light-blue",
         },
         {
             name: "Cobalt",
@@ -245,6 +271,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 4,
             group: 9,
+            colour: "light-blue",
         },
         {
             name: "Nickel",
@@ -254,6 +281,7 @@ export default function Home() {
             electronegativity: 1.8,
             period: 4,
             group: 10,
+            colour: "light-blue",
         },
         {
             name: "Copper",
@@ -263,6 +291,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 4,
             group: 11,
+            colour: "light-blue",
         },
         {
             name: "Zinc",
@@ -272,6 +301,7 @@ export default function Home() {
             electronegativity: 1.6,
             period: 4,
             group: 12,
+            colour: "violet",
         },
         {
             name: "Gallium",
@@ -281,6 +311,7 @@ export default function Home() {
             electronegativity: 1.6,
             period: 4,
             group: 13,
+            colour: "violet",
         },
         {
             name: "Germanium",
@@ -290,6 +321,7 @@ export default function Home() {
             electronegativity: 1.8,
             period: 4,
             group: 14,
+            colour: "yellow",
         },
         {
             name: "Arsenic",
@@ -299,6 +331,7 @@ export default function Home() {
             electronegativity: 2.0,
             period: 4,
             group: 15,
+            colour: "yellow",
         },
         {
             name: "Selenium",
@@ -308,6 +341,7 @@ export default function Home() {
             electronegativity: 2.4,
             period: 4,
             group: 16,
+            colour: "green",
         },
         {
             name: "Bromine",
@@ -317,6 +351,7 @@ export default function Home() {
             electronegativity: 2.8,
             period: 4,
             group: 17,
+            colour: "green",
         },
         {
             name: "Krypton",
@@ -326,6 +361,7 @@ export default function Home() {
             electronegativity: 0,
             period: 4,
             group: 18,
+            colour: "pink",
         },
         {
             name: "Rubidium",
@@ -335,6 +371,7 @@ export default function Home() {
             electronegativity: 0.8,
             period: 5,
             group: 1,
+            colour: "red",
         },
         {
             name: "Strontium",
@@ -344,6 +381,7 @@ export default function Home() {
             electronegativity: 1.0,
             period: 5,
             group: 2,
+            colour: "orange",
         },
         {
             name: "Yttrium",
@@ -353,6 +391,7 @@ export default function Home() {
             electronegativity: 1.2,
             period: 5,
             group: 3,
+            colour: "light-blue",
         },
         {
             name: "Zirconium",
@@ -362,6 +401,7 @@ export default function Home() {
             electronegativity: 1.4,
             period: 5,
             group: 4,
+            colour: "light-blue",
         },
         {
             name: "Niobium",
@@ -371,6 +411,7 @@ export default function Home() {
             electronegativity: 1.6,
             period: 5,
             group: 5,
+            colour: "light-blue",
         },
         {
             name: "Molybdenum",
@@ -380,6 +421,7 @@ export default function Home() {
             electronegativity: 1.8,
             period: 5,
             group: 6,
+            colour: "light-blue",
         },
         {
             name: "Technetium",
@@ -389,6 +431,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 5,
             group: 7,
+            colour: "light-blue",
         },
         {
             name: "Ruthenium",
@@ -398,6 +441,7 @@ export default function Home() {
             electronegativity: 2.2,
             period: 5,
             group: 8,
+            colour: "light-blue",
         },
         {
             name: "Rhodium",
@@ -407,6 +451,7 @@ export default function Home() {
             electronegativity: 2.2,
             period: 5,
             group: 9,
+            colour: "light-blue",
         },
         {
             name: "Palladium",
@@ -416,6 +461,7 @@ export default function Home() {
             electronegativity: 2.2,
             period: 5,
             group: 10,
+            colour: "light-blue",
         },
         {
             name: "Silver",
@@ -425,6 +471,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 5,
             group: 11,
+            colour: "light-blue",
         },
         {
             name: "Cadmium",
@@ -434,6 +481,7 @@ export default function Home() {
             electronegativity: 1.7,
             period: 5,
             group: 12,
+            colour: "violet",
         },
         {
             name: "Indium",
@@ -443,6 +491,7 @@ export default function Home() {
             electronegativity: 1.7,
             period: 5,
             group: 13,
+            colour: "violet",
         },
         {
             name: "Tin",
@@ -452,6 +501,7 @@ export default function Home() {
             electronegativity: 1.8,
             period: 5,
             group: 14,
+            colour: "violet",
         },
         {
             name: "Antimony",
@@ -461,6 +511,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 5,
             group: 15,
+            colour: "yellow",
         },
         {
             name: "Tellurium",
@@ -470,6 +521,7 @@ export default function Home() {
             electronegativity: 2.1,
             period: 5,
             group: 16,
+            colour: "yellow",
         },
         {
             name: "Iodine",
@@ -479,6 +531,7 @@ export default function Home() {
             electronegativity: 2.5,
             period: 5,
             group: 17,
+            colour: "green",
         },
         {
             name: "Xenon",
@@ -488,6 +541,7 @@ export default function Home() {
             electronegativity: 0,
             period: 5,
             group: 18,
+            colour: "pink",
         },
         {
             name: "Caesium",
@@ -497,6 +551,7 @@ export default function Home() {
             electronegativity: 0.7,
             period: 6,
             group: 1,
+            colour: "red",
         },
         {
             name: "Barium",
@@ -506,6 +561,7 @@ export default function Home() {
             electronegativity: 0.9,
             period: 6,
             group: 2,
+            colour: "orange",
         },
         {
             name: "Lanthanum",
@@ -515,6 +571,7 @@ export default function Home() {
             electronegativity: 0,
             period: 6,
             group: 3,
+            colour: "blue",
         },
         {
             name: "Hafnium",
@@ -524,6 +581,7 @@ export default function Home() {
             electronegativity: 1.3,
             period: 6,
             group: 4,
+            colour: "light-blue",
         },
         {
             name: "Tantalum",
@@ -533,6 +591,7 @@ export default function Home() {
             electronegativity: 1.5,
             period: 6,
             group: 5,
+            colour: "light-blue",
         },
         {
             name: "Tungsten",
@@ -542,6 +601,7 @@ export default function Home() {
             electronegativity: 1.7,
             period: 6,
             group: 6,
+            colour: "light-blue",
         },
         {
             name: "Rhenium",
@@ -551,6 +611,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 6,
             group: 7,
+            colour: "light-blue",
         },
         {
             name: "Osmium",
@@ -560,6 +621,7 @@ export default function Home() {
             electronegativity: 2.2,
             period: 6,
             group: 8,
+            colour: "light-blue",
         },
         {
             name: "Iridium",
@@ -569,6 +631,7 @@ export default function Home() {
             electronegativity: 2.2,
             period: 6,
             group: 9,
+            colour: "light-blue",
         },
         {
             name: "Platinum",
@@ -578,6 +641,7 @@ export default function Home() {
             electronegativity: 2.2,
             period: 6,
             group: 10,
+            colour: "light-blue",
         },
         {
             name: "Gold",
@@ -587,6 +651,7 @@ export default function Home() {
             electronegativity: 2.4,
             period: 6,
             group: 11,
+            colour: "light-blue",
         },
         {
             name: "Mercury",
@@ -596,6 +661,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 6,
             group: 12,
+            colour: "violet",
         },
         {
             name: "Thallium",
@@ -605,6 +671,7 @@ export default function Home() {
             electronegativity: 1.8,
             period: 6,
             group: 13,
+            colour: "violet",
         },
         {
             name: "Lead",
@@ -614,6 +681,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 6,
             group: 14,
+            colour: "violet",
         },
         {
             name: "Bismuth",
@@ -623,6 +691,7 @@ export default function Home() {
             electronegativity: 1.9,
             period: 6,
             group: 15,
+            colour: "violet",
         },
         {
             name: "Polonium",
@@ -632,6 +701,7 @@ export default function Home() {
             electronegativity: 2.0,
             period: 6,
             group: 16,
+            colour: "violet",
         },
         {
             name: "Astatine",
@@ -641,6 +711,7 @@ export default function Home() {
             electronegativity: 2.2,
             period: 6,
             group: 17,
+            colour: "yellow",
         },
         {
             name: "Radon",
@@ -650,6 +721,7 @@ export default function Home() {
             electronegativity: 0,
             period: 6,
             group: 18,
+            colour: "pink",
         },
         {
             name: "Francium",
@@ -659,6 +731,7 @@ export default function Home() {
             electronegativity: 0.7,
             period: 7,
             group: 1,
+            colour: "red",
         },
         {
             name: "Radium",
@@ -668,6 +741,7 @@ export default function Home() {
             electronegativity: 0.9,
             period: 7,
             group: 2,
+            colour: "orange",
         },
         {
             name: "Actinium",
@@ -677,6 +751,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 3,
+            colour: "teal",
         },
         {
             name: "Rutherfordium",
@@ -686,6 +761,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 4,
+            colour: "light-blue",
         },
         {
             name: "Dubnium",
@@ -695,6 +771,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 5,
+            colour: "light-blue",
         },
         {
             name: "Seaborgium",
@@ -704,6 +781,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 6,
+            colour: "light-blue",
         },
         {
             name: "Bohrium",
@@ -713,6 +791,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 7,
+            colour: "light-blue",
         },
         {
             name: "Hassium",
@@ -722,6 +801,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 8,
+            colour: "light-blue",
         },
         {
             name: "Meitnerium",
@@ -731,6 +811,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 9,
+            colour: "grey",
         },
         {
             name: "Darmstadtium",
@@ -740,6 +821,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 10,
+            colour: "grey",
         },
         {
             name: "Roentgenium",
@@ -749,6 +831,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 11,
+            colour: "grey",
         },
         {
             name: "Copernicium",
@@ -758,6 +841,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 12,
+            colour: "violet",
         },
         {
             name: "Nihonium",
@@ -767,6 +851,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 13,
+            colour: "grey",
         },
         {
             name: "Flerovium",
@@ -776,6 +861,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 14,
+            colour: "grey",
         },
         {
             name: "Moscovium",
@@ -785,6 +871,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 15,
+            colour: "grey",
         },
         {
             name: "Livermorium",
@@ -794,6 +881,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 16,
+            colour: "grey",
         },
         {
             name: "Tennessine",
@@ -803,6 +891,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 17,
+            colour: "grey",
         },
         {
             name: "Oganesson",
@@ -812,6 +901,7 @@ export default function Home() {
             electronegativity: 0,
             period: 7,
             group: 18,
+            colour: "grey",
         },
         {
             name: "",
@@ -821,6 +911,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 4,
+            colour: "blue",
         },
         {
             name: "",
@@ -830,6 +921,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 5,
+            colour: "blue",
         },
         {
             name: "",
@@ -839,6 +931,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 6,
+            colour: "blue",
         },
         {
             name: "",
@@ -848,6 +941,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 7,
+            colour: "blue",
         },
         {
             name: "",
@@ -857,6 +951,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 8,
+            colour: "blue",
         },
         {
             name: "",
@@ -866,6 +961,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 9,
+            colour: "blue",
         },
         {
             name: "",
@@ -875,6 +971,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 10,
+            colour: "blue",
         },
         {
             name: "",
@@ -884,6 +981,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 11,
+            colour: "blue",
         },
         {
             name: "",
@@ -893,6 +991,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 12,
+            colour: "blue",
         },
         {
             name: "",
@@ -902,6 +1001,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 13,
+            colour: "blue",
         },
         {
             name: "",
@@ -911,6 +1011,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 14,
+            colour: "blue",
         },
         {
             name: "",
@@ -920,6 +1021,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 15,
+            colour: "blue",
         },
         {
             name: "",
@@ -929,6 +1031,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 16,
+            colour: "blue",
         },
         {
             name: "",
@@ -938,6 +1041,7 @@ export default function Home() {
             electronegativity: 0,
             period: 8,
             group: 17,
+            colour: "blue",
         },
         {
             name: "",
@@ -947,6 +1051,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 4,
+            colour: "teal",
         },
         {
             name: "",
@@ -956,6 +1061,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 5,
+            colour: "teal",
         },
         {
             name: "",
@@ -965,6 +1071,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 6,
+            colour: "teal",
         },
         {
             name: "",
@@ -974,6 +1081,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 7,
+            colour: "teal",
         },
         {
             name: "",
@@ -983,6 +1091,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 8,
+            colour: "teal",
         },
         {
             name: "",
@@ -992,6 +1101,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 9,
+            colour: "teal",
         },
         {
             name: "",
@@ -1001,6 +1111,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 10,
+            colour: "teal",
         },
         {
             name: "",
@@ -1010,6 +1121,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 11,
+            colour: "teal",
         },
         {
             name: "",
@@ -1019,6 +1131,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 12,
+            colour: "teal",
         },
         {
             name: "",
@@ -1028,6 +1141,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 13,
+            colour: "teal",
         },
         {
             name: "",
@@ -1037,6 +1151,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 14,
+            colour: "teal",
         },
         {
             name: "",
@@ -1046,6 +1161,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 15,
+            colour: "teal",
         },
         {
             name: "",
@@ -1055,6 +1171,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 16,
+            colour: "teal",
         },
         {
             name: "",
@@ -1064,6 +1181,7 @@ export default function Home() {
             electronegativity: 0,
             period: 9,
             group: 17,
+            colour: "teal",
         },
     ];
 
@@ -1077,6 +1195,7 @@ export default function Home() {
                 electronegativity: number;
                 period: number;
                 group: number;
+                colour: string;
             };
             amount: number;
             output: JSX.Element;
@@ -1094,6 +1213,7 @@ export default function Home() {
                 electronegativity: number;
                 period: number;
                 group: number;
+                colour: string;
             };
             amount: number;
         }[];
@@ -1108,11 +1228,11 @@ export default function Home() {
         electronegativity: number;
         period: number;
         group: number;
+        colour: string;
     }) => {
         return (
             <div
-                key={"el-" + element.symbol}
-                className={`${element.group == 4 ? "w-[50px] ml-[5px]" : "w-[55px]"} ${element.period == 8 ? "h-[50px] mt-[5px]" : "h-[55px]"} grid border cursor-pointer`}
+                className={`${element.group == 4 ? "w-[50px] ml-[5px]" : "w-[55px]"} ${element.period == 8 ? "h-[50px] mt-[5px]" : "h-[55px]"} grid border cursor-pointer element-block element-${element.colour}`}
                 style={{ gridColumn: element.group }}
                 onClick={() => {
                     const newF = [...formula];
@@ -1124,9 +1244,7 @@ export default function Home() {
                             output: (
                                 <span>
                                     {element.symbol}
-                                    <sub key={"form-" + formula.length}>
-                                        {newF[newF.indexOf(exisits)].amount + 1}
-                                    </sub>
+                                    <sub>{newF[newF.indexOf(exisits)].amount + 1}</sub>
                                 </span>
                             ),
                         };
@@ -1134,7 +1252,7 @@ export default function Home() {
                         newF.push({
                             element: element,
                             amount: 1,
-                            output: <span key={"form-" + formula.length}>{element.symbol}</span>,
+                            output: <span>{element.symbol}</span>,
                         });
                     }
                     setFormula(newF);
@@ -1156,6 +1274,7 @@ export default function Home() {
                 electronegativity: number;
                 period: number;
                 group: number;
+                colour: string;
             };
             amount: number;
             output: JSX.Element;
@@ -1174,6 +1293,7 @@ export default function Home() {
                         electronegativity: number;
                         period: number;
                         group: number;
+                        colour: string;
                     };
                     amount: number;
                     output: JSX.Element;
@@ -1212,7 +1332,7 @@ export default function Home() {
                                         formula.findIndex((e) => e.element.symbol == ")"),
                                     ];
                                     if (["(", ")", "0"].includes(item.element.symbol)) {
-                                        return <span key={"form-blank" + formula.length}></span>;
+                                        return <></>;
                                     }
 
                                     if (
@@ -1252,7 +1372,7 @@ export default function Home() {
                                 {calcMass(formula)} g/mol
                             </p>
                             <button
-                                className="cursor-pointer"
+                                className="cursor-pointer bg-[#1e7efb] text-white p-[5px_10px] rounded-[15px] w-[175px] my-[5px] hover:bg-[#4998ff]"
                                 onClick={() => {
                                     setFormula([]);
                                     setBracket({
@@ -1286,15 +1406,18 @@ export default function Home() {
                                         electronegativity: 0,
                                         group: 0,
                                         period: 0,
+                                        colour: "",
                                     },
                                     amount: 0,
-                                    output: <span key={"form-" + formula.length}>{"("}</span>,
+                                    output: <span>{"("}</span>,
                                 },
                             ]);
                         }
                     }}>
-                    {"("}
-                    {bracket.open ? <sub key={"form-" + formula.length}>1</sub> : <></>}
+                    <p className="bg-[#1e7efb] text-white rounded-[30px] my-[5px] hover:bg-[#4998ff] p-[8px_20px] font-[700] text-[20px]">
+                        {"("}
+                    </p>
+                    {bracket.open ? <sub>1</sub> : <></>}
                 </div>
                 <div
                     className="col-[14/15] row-[1/2] cursor-pointer flex items-center justify-center"
@@ -1312,6 +1435,7 @@ export default function Home() {
                                         electronegativity: 0,
                                         group: 0,
                                         period: 0,
+                                        colour: "",
                                     },
                                     amount: 0,
                                     output: <span>{")"}</span>,
@@ -1319,7 +1443,9 @@ export default function Home() {
                             ]);
                         }
                     }}>
-                    {")"}
+                    <p className="bg-[#1e7efb] text-white rounded-[30px] my-[5px] hover:bg-[#4998ff] p-[8px_20px] font-[700] text-[20px]">
+                        {")"}
+                    </p>
                     {bracket.close ? <sub>1</sub> : <></>}
                 </div>
                 <div className="col-[15/17] row-[1/2] cursor-pointer flex items-center justify-center w-[110px] flex-col">
@@ -1334,7 +1460,7 @@ export default function Home() {
                     />
                 </div>
                 <div
-                    className="col-[17/18] row-[1/2] cursor-pointer flex items-center justify-center"
+                    className="col-[17/18] row-[1/2] cursor-pointer flex items-center justify-center bg-[#1e7efb] text-white p-[2px_5px] rounded-[28px] my-[5px] hover:bg-[#4998ff]"
                     onClick={() => {
                         if (bracket.open && bracket.close) {
                             setFormula([
@@ -1348,6 +1474,7 @@ export default function Home() {
                                         electronegativity: 0,
                                         group: 0,
                                         period: 0,
+                                        colour: "",
                                     },
                                     amount: bracket.amount,
                                     output: (
