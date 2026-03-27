@@ -1082,6 +1082,23 @@ export default function Home() {
             output: JSX.Element;
         }[]
     >([]);
+    const [bracket, setBracket] = useState<{
+        open: boolean;
+        close: boolean;
+        elements: {
+            element: {
+                name: string;
+                symbol: string;
+                atomicNumber: number;
+                atomicMass: number;
+                electronegativity: number;
+                period: number;
+                group: number;
+            };
+            amount: number;
+        }[];
+        amount: number;
+    }>({ open: false, close: false, elements: [], amount: 0 });
 
     const drawElement = (element: {
         name: string;
@@ -1095,7 +1112,7 @@ export default function Home() {
         return (
             <div
                 key={"el-" + element.symbol}
-                className={`${element.group == 4 ? "w-[65px] ml-[5px]" : "w-[70px]"} ${element.period == 8 ? "h-[65px] mt-[5px]" : "h-[70px]"} grid border cursor-pointer`}
+                className={`${element.group == 4 ? "w-[50px] ml-[5px]" : "w-[55px]"} ${element.period == 8 ? "h-[50px] mt-[5px]" : "h-[55px]"} grid border cursor-pointer`}
                 style={{ gridColumn: element.group }}
                 onClick={() => {
                     const newF = [...formula];
@@ -1122,9 +1139,9 @@ export default function Home() {
                     }
                     setFormula(newF);
                 }}>
-                <div className="text-[12px]">{element.atomicNumber}</div>
-                <div className="w-[100%] text-center">{element.symbol}</div>
-                <div className="w-[100%] text-center text-[14px]">{element.atomicMass}</div>
+                <p className="text-[12px] h-[10px] pl-[5px]">{element.atomicNumber}</p>
+                <div className="w-[100%] text-center h-[20px]">{element.symbol}</div>
+                <p className="w-[100%] text-center text-[12px] h-[15px]">{element.atomicMass}</p>
             </div>
         );
     };
@@ -1168,10 +1185,8 @@ export default function Home() {
 
     return (
         <main className="m-[25px_auto] w-[80%]">
-            <div className="grid grid-cols-[70] grid-cols-18 grid-rows-[70] overflow-x min-w-[750px]">
-                <div className="col-[2/4] row-[1/2] text-[rgb(125_125_125)] p-[10px]">
-                    Try clicking on an element
-                </div>
+            <div className="text-[rgb(125_125_125)] p-[10px]">Try clicking on an element</div>
+            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x min-w-[750px]">
                 <div className="col-[4/12] row-[1/3]">
                     {formula.length > 0 ? (
                         <>
@@ -1207,6 +1222,22 @@ export default function Home() {
                     )}
                 </div>
                 {elements.map((element) => drawElement(element))}
+                <div className="col-[13/14] row-[1/2] cursor-pointer flex items-center justify-center">
+                    {"("}
+                </div>
+                <div className="col-[14/15] row-[1/2] cursor-pointer flex items-center justify-center">
+                    {")"}
+                </div>
+                <div className="col-[15/17] row-[1/2] cursor-pointer flex items-center justify-center w-[110px] flex-col">
+                    <p>Amount</p>
+                    <input
+                        type="text"
+                        className="w-[100%]"
+                    />
+                </div>
+                <div className="col-[17/18] row-[1/2] cursor-pointer flex items-center justify-center">
+                    <button>Add</button>
+                </div>
             </div>
         </main>
     );
