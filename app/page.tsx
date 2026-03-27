@@ -1164,20 +1164,35 @@ export default function Home() {
         let mass = 0;
 
         formula.forEach(
-            (element: {
+            (
                 element: {
-                    name: string;
-                    symbol: string;
-                    atomicNumber: number;
-                    atomicMass: number;
-                    electronegativity: number;
-                    period: number;
-                    group: number;
-                };
-                amount: number;
-                output: JSX.Element;
-            }) => {
-                mass += element.element.atomicMass * element.amount;
+                    element: {
+                        name: string;
+                        symbol: string;
+                        atomicNumber: number;
+                        atomicMass: number;
+                        electronegativity: number;
+                        period: number;
+                        group: number;
+                    };
+                    amount: number;
+                    output: JSX.Element;
+                },
+                index,
+            ) => {
+                const bracketPos = [
+                    formula.findIndex((e) => e.element.symbol == "("),
+                    formula.findIndex((e) => e.element.symbol == ")"),
+                ];
+
+                if (index > bracketPos[0] && index < bracketPos[1] && formula[bracketPos[1] + 1]) {
+                    mass +=
+                        element.element.atomicMass *
+                        element.amount *
+                        formula[bracketPos[1] + 1].amount;
+                } else {
+                    mass += element.element.atomicMass * element.amount;
+                }
             },
         );
         return mass;
@@ -1191,9 +1206,35 @@ export default function Home() {
                     {formula.length > 0 ? (
                         <>
                             <p>
-                                {formula!.map((item) => {
+                                {formula!.map((item, index) => {
+                                    const bracketPos = [
+                                        formula.findIndex((e) => e.element.symbol == "("),
+                                        formula.findIndex((e) => e.element.symbol == ")"),
+                                    ];
                                     if (["(", ")", "0"].includes(item.element.symbol)) {
-                                        return <></>;
+                                        return <span key={"form-blank" + formula.length}></span>;
+                                    }
+
+                                    if (
+                                        index > bracketPos[0] &&
+                                        index < bracketPos[1] &&
+                                        formula[bracketPos[1] + 1]
+                                    ) {
+                                        console.log(formula[bracketPos[1] + 1]);
+
+                                        return (
+                                            <>
+                                                {item.element.symbol} *{" "}
+                                                {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
+                                                {item.element.atomicMass} *{" "}
+                                                {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
+                                                {item.element.atomicMass *
+                                                    item.amount *
+                                                    formula[bracketPos[1] + 1].amount}{" "}
+                                                g/mol
+                                                <br />
+                                            </>
+                                        );
                                     }
                                     return (
                                         <>
@@ -1212,7 +1253,15 @@ export default function Home() {
                             </p>
                             <button
                                 className="cursor-pointer"
-                                onClick={() => setFormula([])}>
+                                onClick={() => {
+                                    setFormula([]);
+                                    setBracket({
+                                        elements: [],
+                                        open: false,
+                                        close: false,
+                                        amount: 0,
+                                    });
+                                }}>
                                 Clear
                             </button>
                         </>
@@ -1239,13 +1288,13 @@ export default function Home() {
                                         period: 0,
                                     },
                                     amount: 0,
-                                    output: <span>{"("}</span>,
+                                    output: <span key={"form-" + formula.length}>{"("}</span>,
                                 },
                             ]);
                         }
                     }}>
                     {"("}
-                    {bracket.open ? <sub>1</sub> : <></>}
+                    {bracket.open ? <sub key={"form-" + formula.length}>1</sub> : <></>}
                 </div>
                 <div
                     className="col-[14/15] row-[1/2] cursor-pointer flex items-center justify-center"
