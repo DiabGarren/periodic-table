@@ -167,7 +167,7 @@ export default function Home() {
             name: "Chlorine",
             symbol: "Cl",
             atomicNumber: 17,
-            atomicMass: 25.4527,
+            atomicMass: 35.4527,
             electronegativity: 3.0,
             period: 3,
             group: 17,
