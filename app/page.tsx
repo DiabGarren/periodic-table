@@ -1320,7 +1320,7 @@ export default function Home() {
 
     return (
         <main className="m-[25px_auto] w-[95%]">
-            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x-auto w-[100%] mx-auto">
+            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x-auto max-w-[calc(55px*18)] mx-auto">
                 {elements.map((element) => drawElement(element))}
                 <div
                     className="col-[3/4] row-[3/4] cursor-pointer flex items-center justify-center h-[45px]"
