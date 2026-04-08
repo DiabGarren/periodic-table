@@ -1564,7 +1564,7 @@ export default function Home() {
                                 />
                             </div>
                             <div className="grid grid-rows-3 text-[11px] [&_p]:h-[15px]">
-                                <p className="self-end">
+                                <p className="self-end text-center">
                                     {"÷"} {calcMass(formula)} {"g/mol"}
                                 </p>
                                 <svg
@@ -1582,7 +1582,7 @@ export default function Home() {
                                         fill="black"
                                     />
                                 </svg>
-                                <p>
+                                <p className="text-center">
                                     {"•"} {calcMass(formula)} {"g/mol"}
                                 </p>
                             </div>
@@ -1678,7 +1678,7 @@ export default function Home() {
                                 />
                             </div>
                             <div className="grid grid-rows-3 text-[11px] [&_p]:h-[15px]">
-                                <p className="self-end">
+                                <p className="self-end text-center">
                                     {"•"} {vol} {"L"}
                                 </p>
                                 <svg
@@ -1696,7 +1696,7 @@ export default function Home() {
                                         fill="black"
                                     />
                                 </svg>
-                                <p>
+                                <p className="text-center">
                                     {"÷"} {vol} {"L"}
                                 </p>
                             </div>
