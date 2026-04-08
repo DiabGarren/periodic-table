@@ -1220,7 +1220,12 @@ export default function Home() {
         amount: number;
     }>({ open: false, close: false, elements: [], amount: 0 });
 
-    const drawElement = (element: {
+    const [mol, setMol] = useState<number | string>("");
+    const [mass, setMass] = useState<number | string>("");
+    const [con, setCon] = useState<number | string>("");
+    const [vol, setVol] = useState<number | string>(1);
+
+    function drawElement(element: {
         name: string;
         symbol: string;
         atomicNumber: number;
@@ -1229,7 +1234,7 @@ export default function Home() {
         period: number;
         group: number;
         colour: string;
-    }) => {
+    }) {
         return (
             <div
                 className={`${element.group == 4 ? "w-[50px] ml-[5px]" : "w-[55px]"} ${element.period == 8 ? "h-[50px] mt-[5px]" : "h-[55px]"} grid border cursor-pointer element-block element-${element.colour}`}
@@ -1262,9 +1267,9 @@ export default function Home() {
                 <p className="w-[100%] text-center text-[12px] h-[15px]">{element.atomicMass}</p>
             </div>
         );
-    };
+    }
 
-    const calcMass = (
+    function calcMass(
         formula: {
             element: {
                 name: string;
@@ -1279,7 +1284,7 @@ export default function Home() {
             amount: number;
             output: JSX.Element;
         }[],
-    ) => {
+    ) {
         let mass = 0;
 
         formula.forEach(
@@ -1315,12 +1320,29 @@ export default function Home() {
                 }
             },
         );
-        return mass;
-    };
+        // Round to 4 decimal places
+        return +mass.toFixed(4);
+    }
+
+    function calcMol_m(mass: number, gMol: number) {
+        return mass / gMol;
+    }
+
+    function calcMol_v(con: number, vol: number) {
+        return con * vol;
+    }
+
+    function calcMass_g(mol: number, gMol: number) {
+        return mol * gMol;
+    }
+
+    function calcCon(mol: number, vol: number) {
+        return mol / vol;
+    }
 
     return (
         <main className="m-[25px_auto] w-[95%]">
-            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x-auto max-w-[calc(55px*18)] mx-auto">
+            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x-auto max-w-[calc(55px*18)] max-h-[calc(55px*6.5)] mx-auto rounded-[15px]">
                 {elements.map((element) => drawElement(element))}
                 <div
                     className="col-[3/4] row-[3/4] cursor-pointer flex items-center justify-center h-[45px]"
@@ -1431,65 +1453,279 @@ export default function Home() {
             <div className="m-[25px_10px]">
                 {formula.length > 0 ? (
                     <>
-                        <p>
-                            {formula!.map((item, index) => {
-                                const bracketPos = [
-                                    formula.findIndex((e) => e.element.symbol == "("),
-                                    formula.findIndex((e) => e.element.symbol == ")"),
-                                ];
-                                if (["(", ")", "0"].includes(item.element.symbol)) {
-                                    return <></>;
-                                }
+                        <div className="text-center">
+                            <h1 className="text-center">{formula.map((el) => el.output)}</h1>
+                            <button
+                                className="cursor-pointer bg-[#1e7efb] text-white p-[5px_10px] rounded-[15px] w-[175px] my-[5px] hover:bg-[#4998ff]"
+                                onClick={() => {
+                                    setFormula([]);
+                                    setBracket({
+                                        elements: [],
+                                        open: false,
+                                        close: false,
+                                        amount: 0,
+                                    });
+                                    setMass("");
+                                    setMol("");
+                                    setCon("");
+                                    setVol(1);
+                                }}>
+                                Clear
+                            </button>
+                        </div>
+                        <div className="calculation">
+                            <h2>Molar Mass</h2>
+                            <p className="mt-[5px]">
+                                {formula!.map((item, index) => {
+                                    const bracketPos = [
+                                        formula.findIndex((e) => e.element.symbol == "("),
+                                        formula.findIndex((e) => e.element.symbol == ")"),
+                                    ];
+                                    if (["(", ")", "0"].includes(item.element.symbol)) {
+                                        return <></>;
+                                    }
 
-                                if (
-                                    index > bracketPos[0] &&
-                                    index < bracketPos[1] &&
-                                    formula[bracketPos[1] + 1]
-                                ) {
-                                    console.log(formula[bracketPos[1] + 1]);
+                                    if (
+                                        index > bracketPos[0] &&
+                                        index < bracketPos[1] &&
+                                        formula[bracketPos[1] + 1]
+                                    ) {
+                                        console.log(formula[bracketPos[1] + 1]);
 
+                                        return (
+                                            <>
+                                                {item.element.symbol}
+                                                {" • "}
+                                                {item.amount *
+                                                    formula[bracketPos[1] + 1].amount} ={" "}
+                                                {item.element.atomicMass}
+                                                {" • "}
+                                                {item.amount *
+                                                    formula[bracketPos[1] + 1].amount} ={" "}
+                                                {item.element.atomicMass *
+                                                    item.amount *
+                                                    formula[bracketPos[1] + 1].amount}{" "}
+                                                g/mol
+                                                <br />
+                                            </>
+                                        );
+                                    }
                                     return (
                                         <>
-                                            {item.element.symbol} *{" "}
-                                            {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
-                                            {item.element.atomicMass} *{" "}
-                                            {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
-                                            {item.element.atomicMass *
-                                                item.amount *
-                                                formula[bracketPos[1] + 1].amount}{" "}
-                                            g/mol
+                                            {item.element.symbol} • {item.amount} ={" "}
+                                            {item.element.atomicMass} • {item.amount} ={" "}
+                                            {item.element.atomicMass * item.amount} g/mol
                                             <br />
                                         </>
                                     );
-                                }
-                                return (
-                                    <>
-                                        {item.element.symbol} * {item.amount} ={" "}
-                                        {item.element.atomicMass} * {item.amount} ={" "}
-                                        {item.element.atomicMass * item.amount} g/mol
-                                        <br />
-                                    </>
-                                );
-                            })}
-                        </p>
-                        <p className="mt-[15px]">
-                            {formula!.map((item) => item.output)}
-                            {" = "}
-                            {calcMass(formula)} g/mol
-                        </p>
-                        <button
-                            className="cursor-pointer bg-[#1e7efb] text-white p-[5px_10px] rounded-[15px] w-[175px] my-[5px] hover:bg-[#4998ff]"
-                            onClick={() => {
-                                setFormula([]);
-                                setBracket({
-                                    elements: [],
-                                    open: false,
-                                    close: false,
-                                    amount: 0,
-                                });
-                            }}>
-                            Clear
-                        </button>
+                                })}
+                            </p>
+                            <hr />
+                            <p>
+                                {formula!.map((item) => item.output)}
+                                {" = "}
+                                {calcMass(formula)} g/mol
+                            </p>
+                        </div>
+
+                        <div className="calculation grid grid-cols-3 grid-cols-[1fr_100px_1fr] gap-[0_15px]">
+                            <h2 className="col-[1/4]">Number of Moles (n)</h2>
+                            <div className="input">
+                                <label>mass (g)</label>
+                                <input
+                                    type="number"
+                                    placeholder="..."
+                                    value={mass}
+                                    onChange={(event) => {
+                                        const num = event.currentTarget.value;
+                                        if (num) {
+                                            setMass(Number(event.currentTarget.value));
+                                            setMol(
+                                                calcMol_m(
+                                                    Number(event.currentTarget.value),
+                                                    calcMass(formula),
+                                                ),
+                                            );
+                                            setCon(
+                                                calcCon(
+                                                    calcMol_m(
+                                                        Number(event.currentTarget.value),
+                                                        calcMass(formula),
+                                                    ),
+                                                    Number(vol),
+                                                ),
+                                            );
+                                        } else {
+                                            setMass("");
+                                            setMol("");
+                                            setCon("");
+                                        }
+                                    }}
+                                />
+                            </div>
+                            <div className="grid grid-rows-3 text-[11px] [&_p]:h-[15px]">
+                                <p className="self-end">
+                                    {"÷"} {calcMass(formula)} {"g/mol"}
+                                </p>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="101"
+                                    height="21"
+                                    viewBox="0 0 101 21"
+                                    fill="none">
+                                    <path
+                                        d="M1 4.7735C0.447715 4.7735 0 5.22121 0 5.7735C0 6.32578 0.447715 6.7735 1 6.7735V5.7735V4.7735ZM101 5.7735L91 -4.29153e-06V11.547L101 5.7735ZM1 5.7735V6.7735H92V5.7735V4.7735H1V5.7735Z"
+                                        fill="black"
+                                    />
+                                    <path
+                                        d="M0.5 14.2735L10.5 20.047V8.5L0.5 14.2735ZM100.5 14.2735V13.2735H9.5V14.2735V15.2735H100.5V14.2735Z"
+                                        fill="black"
+                                    />
+                                </svg>
+                                <p>
+                                    {"•"} {calcMass(formula)} {"g/mol"}
+                                </p>
+                            </div>
+                            <div className="input">
+                                <label>mol (n)</label>
+                                <input
+                                    type="number"
+                                    placeholder="..."
+                                    value={mol}
+                                    onChange={(event) => {
+                                        const num = event.currentTarget.value;
+                                        if (num) {
+                                            setMol(Number(event.currentTarget.value));
+                                            setMass(calcMass_g(Number(mol), calcMass(formula)));
+                                            setCon(
+                                                calcCon(
+                                                    Number(event.currentTarget.value),
+                                                    Number(vol),
+                                                ),
+                                            );
+                                        } else {
+                                            setMol("");
+                                            setMass("");
+                                            setCon("");
+                                        }
+                                    }}
+                                />
+                            </div>
+                            <div className="input col-[1/4]">
+                                <label>vol (L)</label>
+                                <input
+                                    type="number"
+                                    placeholder="..."
+                                    value={vol}
+                                    onChange={(event) => {
+                                        const num = event.currentTarget.value;
+                                        if (num) {
+                                            setVol(Number(event.currentTarget.value));
+                                            setMol(
+                                                calcMol_v(
+                                                    Number(con),
+                                                    Number(event.currentTarget.value),
+                                                ),
+                                            );
+                                            setMass(
+                                                calcMass_g(
+                                                    calcMol_v(
+                                                        Number(con),
+                                                        Number(event.currentTarget.value),
+                                                    ),
+                                                    calcMass(formula),
+                                                ),
+                                            );
+                                        } else {
+                                            setVol("");
+                                            setMol("");
+                                            setMass("");
+                                        }
+                                    }}
+                                />
+                            </div>
+                            <div className="input">
+                                <label>c. (M)</label>
+                                <input
+                                    type="number"
+                                    placeholder="..."
+                                    value={con}
+                                    onChange={(event) => {
+                                        const num = event.currentTarget.value;
+                                        if (num) {
+                                            setCon(Number(event.currentTarget.value));
+                                            setMol(
+                                                calcMol_v(
+                                                    Number(event.currentTarget.value),
+                                                    Number(vol),
+                                                ),
+                                            );
+                                            setMass(
+                                                calcMass_g(
+                                                    calcMol_v(
+                                                        Number(event.currentTarget.value),
+                                                        Number(vol),
+                                                    ),
+                                                    calcMass(formula),
+                                                ),
+                                            );
+                                        } else {
+                                            setCon("");
+                                            setMol("");
+                                            setMass("");
+                                        }
+                                    }}
+                                />
+                            </div>
+                            <div className="grid grid-rows-3 text-[11px] [&_p]:h-[15px]">
+                                <p className="self-end">
+                                    {"•"} {vol} {"L"}
+                                </p>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="101"
+                                    height="21"
+                                    viewBox="0 0 101 21"
+                                    fill="none">
+                                    <path
+                                        d="M1 4.7735C0.447715 4.7735 0 5.22121 0 5.7735C0 6.32578 0.447715 6.7735 1 6.7735V5.7735V4.7735ZM101 5.7735L91 -4.29153e-06V11.547L101 5.7735ZM1 5.7735V6.7735H92V5.7735V4.7735H1V5.7735Z"
+                                        fill="black"
+                                    />
+                                    <path
+                                        d="M0.5 14.2735L10.5 20.047V8.5L0.5 14.2735ZM100.5 14.2735V13.2735H9.5V14.2735V15.2735H100.5V14.2735Z"
+                                        fill="black"
+                                    />
+                                </svg>
+                                <p>
+                                    {"÷"} {vol} {"L"}
+                                </p>
+                            </div>
+                            <div className="input">
+                                <label>mol (n)</label>
+                                <input
+                                    type="number"
+                                    placeholder="..."
+                                    value={mol}
+                                    onChange={(event) => {
+                                        const num = event.currentTarget.value;
+                                        if (num) {
+                                            setMol(Number(event.currentTarget.value));
+                                            setMass(calcMass_g(Number(mol), calcMass(formula)));
+                                            setCon(
+                                                calcCon(
+                                                    Number(event.currentTarget.value),
+                                                    Number(vol),
+                                                ),
+                                            );
+                                        } else {
+                                            setMol("");
+                                            setMass("");
+                                            setCon("");
+                                        }
+                                    }}
+                                />
+                            </div>
+                        </div>
                     </>
                 ) : (
                     <></>
