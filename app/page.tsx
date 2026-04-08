@@ -1319,79 +1319,11 @@ export default function Home() {
     };
 
     return (
-        <main className="m-[25px_auto] w-[80%]">
-            <div className="text-[rgb(125_125_125)] p-[10px]">Try clicking on an element</div>
-            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x w-[750px] mx-auto">
-                <div className="col-[4/12] row-[1/4]">
-                    {formula.length > 0 ? (
-                        <>
-                            <p>
-                                {formula!.map((item, index) => {
-                                    const bracketPos = [
-                                        formula.findIndex((e) => e.element.symbol == "("),
-                                        formula.findIndex((e) => e.element.symbol == ")"),
-                                    ];
-                                    if (["(", ")", "0"].includes(item.element.symbol)) {
-                                        return <></>;
-                                    }
-
-                                    if (
-                                        index > bracketPos[0] &&
-                                        index < bracketPos[1] &&
-                                        formula[bracketPos[1] + 1]
-                                    ) {
-                                        console.log(formula[bracketPos[1] + 1]);
-
-                                        return (
-                                            <>
-                                                {item.element.symbol} *{" "}
-                                                {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
-                                                {item.element.atomicMass} *{" "}
-                                                {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
-                                                {item.element.atomicMass *
-                                                    item.amount *
-                                                    formula[bracketPos[1] + 1].amount}{" "}
-                                                g/mol
-                                                <br />
-                                            </>
-                                        );
-                                    }
-                                    return (
-                                        <>
-                                            {item.element.symbol} * {item.amount} ={" "}
-                                            {item.element.atomicMass} * {item.amount} ={" "}
-                                            {item.element.atomicMass * item.amount} g/mol
-                                            <br />
-                                        </>
-                                    );
-                                })}
-                            </p>
-                            <p className="mt-[15px]">
-                                {formula!.map((item) => item.output)}
-                                {" = "}
-                                {calcMass(formula)} g/mol
-                            </p>
-                            <button
-                                className="cursor-pointer bg-[#1e7efb] text-white p-[5px_10px] rounded-[15px] w-[175px] my-[5px] hover:bg-[#4998ff]"
-                                onClick={() => {
-                                    setFormula([]);
-                                    setBracket({
-                                        elements: [],
-                                        open: false,
-                                        close: false,
-                                        amount: 0,
-                                    });
-                                }}>
-                                Clear
-                            </button>
-                        </>
-                    ) : (
-                        <></>
-                    )}
-                </div>
+        <main className="m-[25px_auto] w-[95%]">
+            <div className="grid grid-cols-[55] grid-cols-18 grid-rows-[55] overflow-x-auto w-[100%] mx-auto">
                 {elements.map((element) => drawElement(element))}
                 <div
-                    className="col-[13/14] row-[1/2] cursor-pointer flex items-center justify-center"
+                    className="col-[3/4] row-[3/4] cursor-pointer flex items-center justify-center h-[45px]"
                     onClick={() => {
                         if (!bracket.open) {
                             setBracket({ ...bracket, open: true });
@@ -1420,7 +1352,7 @@ export default function Home() {
                     {bracket.open ? <sub>1</sub> : <></>}
                 </div>
                 <div
-                    className="col-[14/15] row-[1/2] cursor-pointer flex items-center justify-center"
+                    className="col-[4/5] row-[3/4] cursor-pointer flex items-center justify-center h-[45px]"
                     onClick={() => {
                         if (bracket.open && !bracket.close) {
                             setBracket({ ...bracket, open: true, close: true });
@@ -1443,12 +1375,12 @@ export default function Home() {
                             ]);
                         }
                     }}>
-                    <p className="bg-[#1e7efb] text-white rounded-[30px] my-[5px] hover:bg-[#4998ff] p-[8px_20px] font-[700] text-[20px]">
+                    <p className="bg-[#1e7efb] text-white rounded-[30px] my-[5px] hover:bg-[#4998ff] p-[8px_20px] font-[700] text-[20px] h-[45px]">
                         {")"}
                     </p>
                     {bracket.close ? <sub>1</sub> : <></>}
                 </div>
-                <div className="col-[15/17] row-[1/2] cursor-pointer flex items-center justify-center w-[110px] flex-col">
+                <div className="col-[5/7] row-[3/4] cursor-pointer flex items-center justify-center w-[110px] flex-col h-[45px]">
                     <p>Amount</p>
                     <input
                         type="Number"
@@ -1460,7 +1392,7 @@ export default function Home() {
                     />
                 </div>
                 <div
-                    className="col-[17/18] row-[1/2] cursor-pointer flex items-center justify-center bg-[#1e7efb] text-white p-[2px_5px] rounded-[28px] my-[5px] hover:bg-[#4998ff]"
+                    className="col-[7/8] row-[3/4] cursor-pointer flex items-center justify-center bg-[#1e7efb] text-white p-[2px_5px] rounded-[28px] my-[5px] hover:bg-[#4998ff] h-[45px]"
                     onClick={() => {
                         if (bracket.open && bracket.close) {
                             setFormula([
@@ -1495,6 +1427,73 @@ export default function Home() {
                     }}>
                     Add
                 </div>
+            </div>
+            <div className="m-[25px_10px]">
+                {formula.length > 0 ? (
+                    <>
+                        <p>
+                            {formula!.map((item, index) => {
+                                const bracketPos = [
+                                    formula.findIndex((e) => e.element.symbol == "("),
+                                    formula.findIndex((e) => e.element.symbol == ")"),
+                                ];
+                                if (["(", ")", "0"].includes(item.element.symbol)) {
+                                    return <></>;
+                                }
+
+                                if (
+                                    index > bracketPos[0] &&
+                                    index < bracketPos[1] &&
+                                    formula[bracketPos[1] + 1]
+                                ) {
+                                    console.log(formula[bracketPos[1] + 1]);
+
+                                    return (
+                                        <>
+                                            {item.element.symbol} *{" "}
+                                            {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
+                                            {item.element.atomicMass} *{" "}
+                                            {item.amount * formula[bracketPos[1] + 1].amount} ={" "}
+                                            {item.element.atomicMass *
+                                                item.amount *
+                                                formula[bracketPos[1] + 1].amount}{" "}
+                                            g/mol
+                                            <br />
+                                        </>
+                                    );
+                                }
+                                return (
+                                    <>
+                                        {item.element.symbol} * {item.amount} ={" "}
+                                        {item.element.atomicMass} * {item.amount} ={" "}
+                                        {item.element.atomicMass * item.amount} g/mol
+                                        <br />
+                                    </>
+                                );
+                            })}
+                        </p>
+                        <p className="mt-[15px]">
+                            {formula!.map((item) => item.output)}
+                            {" = "}
+                            {calcMass(formula)} g/mol
+                        </p>
+                        <button
+                            className="cursor-pointer bg-[#1e7efb] text-white p-[5px_10px] rounded-[15px] w-[175px] my-[5px] hover:bg-[#4998ff]"
+                            onClick={() => {
+                                setFormula([]);
+                                setBracket({
+                                    elements: [],
+                                    open: false,
+                                    close: false,
+                                    amount: 0,
+                                });
+                            }}>
+                            Clear
+                        </button>
+                    </>
+                ) : (
+                    <></>
+                )}
             </div>
         </main>
     );
