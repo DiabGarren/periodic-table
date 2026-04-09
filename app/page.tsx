@@ -1221,6 +1221,7 @@ export default function Home() {
     }>({ open: false, close: false, elements: [], amount: 0 });
 
     const [mol, setMol] = useState<number | string>("");
+    const [mol_c, setMol_c] = useState<number | string>("");
     const [mass, setMass] = useState<number | string>("");
     const [con, setCon] = useState<number | string>("");
     const [vol, setVol] = useState<number | string>(1);
@@ -1328,7 +1329,7 @@ export default function Home() {
         return mass / gMol;
     }
 
-    function calcMol_v(con: number, vol: number) {
+    function calcMol_c(con: number, vol: number) {
         return con * vol;
     }
 
@@ -1546,19 +1547,9 @@ export default function Home() {
                                                     calcMass(formula),
                                                 ),
                                             );
-                                            setCon(
-                                                calcCon(
-                                                    calcMol_m(
-                                                        Number(event.currentTarget.value),
-                                                        calcMass(formula),
-                                                    ),
-                                                    Number(vol),
-                                                ),
-                                            );
                                         } else {
                                             setMass("");
                                             setMol("");
-                                            setCon("");
                                         }
                                     }}
                                 />
@@ -1597,16 +1588,9 @@ export default function Home() {
                                         if (num) {
                                             setMol(Number(event.currentTarget.value));
                                             setMass(calcMass_g(Number(mol), calcMass(formula)));
-                                            setCon(
-                                                calcCon(
-                                                    Number(event.currentTarget.value),
-                                                    Number(vol),
-                                                ),
-                                            );
                                         } else {
                                             setMol("");
                                             setMass("");
-                                            setCon("");
                                         }
                                     }}
                                 />
@@ -1621,25 +1605,15 @@ export default function Home() {
                                         const num = event.currentTarget.value;
                                         if (num) {
                                             setVol(Number(event.currentTarget.value));
-                                            setMol(
-                                                calcMol_v(
+                                            setMol_c(
+                                                calcMol_c(
                                                     Number(con),
                                                     Number(event.currentTarget.value),
                                                 ),
                                             );
-                                            setMass(
-                                                calcMass_g(
-                                                    calcMol_v(
-                                                        Number(con),
-                                                        Number(event.currentTarget.value),
-                                                    ),
-                                                    calcMass(formula),
-                                                ),
-                                            );
                                         } else {
                                             setVol("");
-                                            setMol("");
-                                            setMass("");
+                                            setMol_c("");
                                         }
                                     }}
                                 />
@@ -1654,25 +1628,15 @@ export default function Home() {
                                         const num = event.currentTarget.value;
                                         if (num) {
                                             setCon(Number(event.currentTarget.value));
-                                            setMol(
-                                                calcMol_v(
+                                            setMol_c(
+                                                calcMol_c(
                                                     Number(event.currentTarget.value),
                                                     Number(vol),
                                                 ),
                                             );
-                                            setMass(
-                                                calcMass_g(
-                                                    calcMol_v(
-                                                        Number(event.currentTarget.value),
-                                                        Number(vol),
-                                                    ),
-                                                    calcMass(formula),
-                                                ),
-                                            );
                                         } else {
                                             setCon("");
-                                            setMol("");
-                                            setMass("");
+                                            setMol_c("");
                                         }
                                     }}
                                 />
@@ -1705,12 +1669,11 @@ export default function Home() {
                                 <input
                                     type="number"
                                     placeholder="..."
-                                    value={mol}
+                                    value={mol_c}
                                     onChange={(event) => {
                                         const num = event.currentTarget.value;
                                         if (num) {
-                                            setMol(Number(event.currentTarget.value));
-                                            setMass(calcMass_g(Number(mol), calcMass(formula)));
+                                            setMol_c(Number(event.currentTarget.value));
                                             setCon(
                                                 calcCon(
                                                     Number(event.currentTarget.value),
@@ -1718,8 +1681,7 @@ export default function Home() {
                                                 ),
                                             );
                                         } else {
-                                            setMol("");
-                                            setMass("");
+                                            setMol_c("");
                                             setCon("");
                                         }
                                     }}
