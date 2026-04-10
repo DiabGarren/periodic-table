@@ -1,5 +1,5 @@
 "use client";
-import { calcMolarMass, identifyElements } from "@/functions/functions";
+import { calcMolarMass } from "@/functions/functions";
 import { JSX, useState } from "react";
 
 export default function Home() {
