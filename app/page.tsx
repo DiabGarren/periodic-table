@@ -1,4 +1,5 @@
 "use client";
+import { calcMolarMass, identifyElements } from "@/functions/functions";
 import { JSX, useState } from "react";
 
 export default function Home() {
@@ -1220,6 +1221,8 @@ export default function Home() {
         amount: number;
     }>({ open: false, close: false, elements: [], amount: 0 });
 
+    const [reaction, setReaction] = useState("");
+
     const [mol, setMol] = useState<number | string>("");
     const [mol_c, setMol_c] = useState<number | string>("");
     const [mass, setMass] = useState<number | string>("");
@@ -1268,61 +1271,6 @@ export default function Home() {
                 <p className="w-[100%] text-center text-[12px] h-[15px]">{element.atomicMass}</p>
             </div>
         );
-    }
-
-    function calcMass(
-        formula: {
-            element: {
-                name: string;
-                symbol: string;
-                atomicNumber: number;
-                atomicMass: number;
-                electronegativity: number;
-                period: number;
-                group: number;
-                colour: string;
-            };
-            amount: number;
-            output: JSX.Element;
-        }[],
-    ) {
-        let mass = 0;
-
-        formula.forEach(
-            (
-                element: {
-                    element: {
-                        name: string;
-                        symbol: string;
-                        atomicNumber: number;
-                        atomicMass: number;
-                        electronegativity: number;
-                        period: number;
-                        group: number;
-                        colour: string;
-                    };
-                    amount: number;
-                    output: JSX.Element;
-                },
-                index,
-            ) => {
-                const bracketPos = [
-                    formula.findIndex((e) => e.element.symbol == "("),
-                    formula.findIndex((e) => e.element.symbol == ")"),
-                ];
-
-                if (index > bracketPos[0] && index < bracketPos[1] && formula[bracketPos[1] + 1]) {
-                    mass +=
-                        element.element.atomicMass *
-                        element.amount *
-                        formula[bracketPos[1] + 1].amount;
-                } else {
-                    mass += element.element.atomicMass * element.amount;
-                }
-            },
-        );
-        // Round to 4 decimal places
-        return +mass.toFixed(4);
     }
 
     function calcMol_m(mass: number, gMol: number) {
@@ -1525,7 +1473,7 @@ export default function Home() {
                             <p>
                                 {formula!.map((item) => item.output)}
                                 {" = "}
-                                {calcMass(formula)} g/mol
+                                {calcMolarMass(formula)} g/mol
                             </p>
                         </div>
 
@@ -1544,7 +1492,7 @@ export default function Home() {
                                             setMol(
                                                 calcMol_m(
                                                     Number(event.currentTarget.value),
-                                                    calcMass(formula),
+                                                    calcMolarMass(formula),
                                                 ),
                                             );
                                         } else {
@@ -1556,7 +1504,7 @@ export default function Home() {
                             </div>
                             <div className="grid grid-rows-3 text-[11px] [&_p]:h-[15px]">
                                 <p className="self-end text-center">
-                                    {"÷"} {calcMass(formula)} {"g/mol"}
+                                    {"÷"} {calcMolarMass(formula)} {"g/mol"}
                                 </p>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -1574,7 +1522,7 @@ export default function Home() {
                                     />
                                 </svg>
                                 <p className="text-center">
-                                    {"•"} {calcMass(formula)} {"g/mol"}
+                                    {"•"} {calcMolarMass(formula)} {"g/mol"}
                                 </p>
                             </div>
                             <div className="input">
@@ -1587,7 +1535,9 @@ export default function Home() {
                                         const num = event.currentTarget.value;
                                         if (num) {
                                             setMol(Number(event.currentTarget.value));
-                                            setMass(calcMass_g(Number(mol), calcMass(formula)));
+                                            setMass(
+                                                calcMass_g(Number(mol), calcMolarMass(formula)),
+                                            );
                                         } else {
                                             setMol("");
                                             setMass("");
@@ -1692,6 +1642,23 @@ export default function Home() {
                 ) : (
                     <></>
                 )}
+                {/* </div>
+            <div className="mt-[25px]">
+                <h1>Balanced Reaction</h1>
+                <input
+                    type="text"
+                    value={reaction}
+                    onChange={(event) => setReaction(event.currentTarget.value)}
+                />
+
+                <div>
+                    {identifyElements(reaction, elements).map((element) => (
+                        <span>
+                            {element.symbol}
+                            <sub>{element.amount && element.amount > 1 ? element.amount : ""}</sub>
+                        </span>
+                    ))}
+                </div> */}
             </div>
         </main>
     );
